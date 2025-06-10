@@ -1,0 +1,156 @@
+<!-- public/knowledge.html -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <title>芒果小教室</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fffdf0;
+            background-image: url('images/16.jpg');
+            background-size: 450px auto;
+            padding: 40px 20px;
+            margin: 0 auto;
+            max-width: 800px;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #ffa94d;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2{
+            color: #ffa94d;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        nav a {
+            color: #ffa94d;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .welcome-message {
+            color: #ffa94d;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .menu button {
+            padding: 12px 24px;
+            font-size: 1rem;
+            background: #ffa94d;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+        }
+
+        .menu button:hover {
+            background-color: #ff7f11;
+            transform: translateY(-2px);
+        }
+
+        .menu button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(229, 103, 0, 0.6);
+        }
+
+
+        .section {
+            margin-top: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+<h1>📜芒果小教室</h1>
+<nav>
+    <a href="index.html">首頁</a> |
+    <a href="search.html">芒果價格查詢</a> |
+    <a href="recipes.html">芒果小廚房</a>
+</nav>
+
+<div class="welcome-message">歡迎來到芒果小教室！請選擇想了解的主題：</div>
+
+<div class="menu">
+    <button onclick="show('origin')">1. 芒果的由來</button>
+    <button onclick="show('season')">2. 芒果的產期及外形特色</button>
+    <button onclick="show('nutrition')">3. 芒果熱量與營養</button>
+</div>
+
+<div id="origin" class="section">
+    <h2>芒果的由來</h2>
+    <p>芒果起源於印度，為漆樹科熱帶果樹，印度栽培芒果始於四千多年前。</p>
+    <p>在西元前四、五世紀傳入馬來群島，十六世紀經葡萄牙人輸入東非、西非再轉入巴西，十七世紀上半葉傳入菲律賓，
+        十八世紀末經英國人傳入雅買加，十九世紀初經西班牙人由印度及菲律賓分別引入墨西哥，
+        1883年再由墨西哥傳入夏威夷及佛羅里達州而進入美國。</p>
+    <p>目前東南亞國家如印度、緬甸、菲律賓、馬來西亞等，以及中東、澳洲、東南非洲、夏威夷、中南美等地區都有商業性栽培。</p>
+    <p>台灣的芒果於荷蘭人在台期間首次引入，種於台南市六甲區，是台灣栽種芒果之始。</p>
+</div>
+
+<div id="season" class="section">
+    <h2>芒果的產期及外形特色</h2>
+    <p>芒果的產期為每年5月至7月，花穗紅色，小花黃色，新梢暗紅色，30天後轉綠，果實紅色，外表色澤鮮豔，
+    皮薄肉細，纖維中等，味香多汁，酸甜有風味。</p>
+    <p>果重約320-500公克，糖度12-15度Brix，酸度0.21%，糖酸比約57，種子佔果重的7.3%，紅皮討喜及其風味頗受廣大之消費者青睞。</p>
+</div>
+
+<div id="nutrition" class="section">
+    <h2>芒果的熱量與營養</h2>
+    <p>愛文芒果熱量每100公克是42大卡，一顆約有93大卡，富含維生素C、維生素A、膳食纖維和β-胡蘿蔔素。</p>
+    <p>這些營養素有助提升免疫力、促進腸胃蠕動，並有抗氧化、護眼與美膚的功效。</p>
+</div>
+
+<script>
+    function show(id) {
+        document.querySelectorAll('.section').forEach(el => el.style.display = 'none');
+        document.getElementById(id).style.display = 'block';
+    }
+</script>
+</body>
+</html>

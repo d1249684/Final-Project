@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <title>芒果小天地</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8e7;
+      background-image: url('images/8.jpg'); /* 替換為背景圖檔 */
+      background-repeat: repeat;
+      background-size: 550px auto;
+      background-attachment: fixed;
+      text-align: center;
+      padding: 80px 20px;
+      color: #444;
+
+    }
+
+    .page-description {
+      font-family: 'Segoe UI', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+      text-align: center;
+      font-size: 1.3rem;
+      color: #ffa07a;
+      font-weight: 600;
+      margin-top: -10px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+    }
+
+    h1 {
+      color: #ffa94d;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+
+    nav {
+      margin-top: 40px;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 0 15px;
+      padding: 12px 24px;
+      background-color: #ffa94d;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 6px 12px rgba(255, 140, 0, 0.5);
+    }
+
+    nav a:hover {
+      background-color: #ff7f11;
+      animation: shake 0.5s ease;
+      transform: scale(1.08);
+
+    }
+
+    @keyframes shake {
+      0% { transform: scale(1.08) rotate(0deg); }
+      25% { transform: scale(1.08) rotate(-2deg); }
+      50% { transform: scale(1.08) rotate(2deg); }
+      75% { transform: scale(1.08) rotate(-1deg); }
+      100% { transform: scale(1.08) rotate(0deg); }
+    }
+
+  </style>
+</head>
+<body>
+<h1>歡迎來到芒果小天地！</h1>
+<p class="page-description">🥭 一起了解芒果的價格、知識和美味食譜 🥭</p>
+
+<nav>
+  <a href="/search.html">芒果價格查詢</a>
+  <a href="/knowledge.html">芒果小教室</a>
+  <a href="/recipes.html">芒果小廚房</a>
+</nav>
+</body>
+</html>

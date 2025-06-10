@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <title>芒果小廚房</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fffdf5;
+      background-image: url('images/7.jpg');
+      background-size: 550px auto;
+      padding: 40px 20px;
+      margin: 0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #ffa94d;
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 1.1);
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    nav {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    nav a {
+      color: #ffa94d;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .welcome-message {
+      color: #ffa94d;
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 1.1);
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .recipe-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .recipe-buttons button {
+      background-color: #ffa94d;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: 0 5px 10px #ff7f11aa;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .recipe-buttons button:hover {
+      background-color: #ff7f11;
+      transform: translateY(-2px);
+    }
+
+    .recipe-buttons button:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 8px #e56700aa;
+    }
+
+    .recipe-box {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+      display: none;
+      margin-bottom: 20px;
+    }
+
+    .recipe-box.active {
+      display: block;
+    }
+
+    .recipe-box h2 {
+      color: #ffa94d;
+      margin-bottom: 10px;
+    }
+
+    .recipe-box p {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    ul, ol {
+      padding-left: 1.4em;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .recipe-buttons button {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      .recipe-box {
+        padding: 15px 20px;
+      }
+    }
+
+    #recipe1 {
+      position: relative;
+    }
+
+    .recipe-box {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+      display: none;
+      margin-bottom: 20px;
+      position: relative; /* 重點：讓圖片相對定位 */
+    }
+
+    .recipe-box.active {
+      display: block;
+    }
+
+    .recipe-img {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 120px;
+      border-radius: 10px;
+      border: none;
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>芒果小廚房🍴</h1>
+
+  <nav>
+    <a href="/">首頁</a> |
+    <a href="/search.html">芒果價格查詢</a> |
+    <a href="/knowledge.html">芒果小教室</a>
+  </nav>
+
+  <div class="welcome-message">歡迎來到芒果小廚房！請選擇想了解的食譜：</div>
+
+  <div class="recipe-buttons">
+    <button onclick="showRecipe('recipe1')">楊枝甘露</button>
+    <button onclick="showRecipe('recipe2')">泰式椰汁芒果糯米飯</button>
+    <button onclick="showRecipe('recipe3')">芒果奶酪</button>
+    <button onclick="showRecipe('recipe4')">芒果冰沙</button>
+    <button onclick="showRecipe('recipe5')">芒果乳酪慕斯蛋糕</button>
+  </div>
+
+  <div id="recipe1" class="recipe-box">
+    <h2>楊枝甘露</h2>
+    <img src="images/1.jpg" alt="楊枝甘露插圖" class="recipe-img" />
+    <p>材料：</p>
+    <ul>
+      <li>愛文芒果3-4顆、葡萄柚1顆、西米露、椰漿</li>
+    </ul>
+    <p>作法：</p>
+    <ol>
+      <li>水煮沸後倒入西米露煮10分鐘，熄火後悶2分鐘，取出冰鎮瀝乾</li>
+      <li>一半芒果切丁，另一半打成泥和椰漿混合</li>
+      <li>將西米露倒入芒果椰漿內，放上芒果丁與葡萄柚</li>
+      <li>放入冰箱冷藏即完成</li>
+    </ol>
+  </div>
+
+  <div id="recipe2" class="recipe-box">
+    <h2>泰式椰汁芒果糯米飯</h2>
+    <img src="images/2.jpg" alt="泰式椰汁芒果糯米飯插圖" class="recipe-img" />
+    <p>材料：</p>
+    <ul>
+      <li>長糯米、愛文芒果、椰漿、糖、鹽</li>
+    </ul>
+    <p>作法：</p>
+    <ol>
+      <li>將糯米蒸熟</li>
+      <li>椰漿加糖與鹽加熱後關火</li>
+      <li>將一半椰漿拌入糯米，靜置吸收</li>
+      <li>糯米飯裝盤後淋上剩餘椰漿，芒果切花擺盤</li>
+    </ol>
+  </div>
+
+  <div id="recipe3" class="recipe-box">
+    <h2>芒果奶酪</h2>
+    <img src="images/3.png" alt="芒果奶酪插圖" class="recipe-img" />
+    <p>材料：</p>
+    <ul>
+      <li>鮮奶、砂糖、吉利丁粉、愛文芒果2顆</li>
+    </ul>
+    <p>作法：</p>
+    <ol>
+      <li>將吉利丁與水混合放置，融化後與加熱鮮奶及糖混合</li>
+      <li>過篩後倒入容器冷藏</li>
+      <li>吃前鋪上芒果丁</li>
+    </ol>
+  </div>
+
+  <div id="recipe4" class="recipe-box">
+    <h2>芒果冰沙</h2>
+    <img src="images/4.png" alt="芒果冰沙插圖" class="recipe-img" />
+    <p>材料：</p>
+    <ul>
+      <li>愛文芒果、冰塊</li>
+    </ul>
+    <p>作法：</p>
+    <ol>
+      <li>芒果與冰塊放入果汁機打成冰沙即可</li>
+    </ol>
+  </div>
+
+  <div id="recipe5" class="recipe-box">
+    <h2>芒果乳酪慕斯蛋糕</h2>
+    <img src="images/5.jpg" alt="芒果乳酪慕斯蛋糕插圖" class="recipe-img" />
+    <p>材料：</p>
+    <ul>
+      <li>無鹽奶油、奶油乳酪、鮮奶油、鮮奶、愛文芒果、糖、吉利丁粉、消化餅乾</li>
+    </ul>
+    <p>作法：</p>
+    <ol>
+      <li>餅乾壓碎與奶油混合做底層，壓入模具</li>
+      <li>牛奶加糖加熱後加入融化吉利丁</li>
+      <li>混入打發鮮奶油與奶油乳酪</li>
+      <li>芒果打泥加入慕斯內並倒入模具</li>
+      <li>再做一層芒果果泥作表面，冷藏至凝固</li>
+    </ol>
+  </div>
+</div>
+
+<script>
+  function showRecipe(id) {
+    const recipes = document.querySelectorAll('.recipe-box');
+    recipes.forEach(r => r.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+</body>
+</html>

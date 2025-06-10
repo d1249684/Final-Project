@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <title>芒果價格查詢</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fffdf5;
+            background-image: url('images/11.jpg');
+            background-size: 400px auto;
+            padding: 40px 20px;
+            margin: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #ffa94d;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        nav {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        nav a {
+            color: #ffa94d;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        nav a:hover { text-decoration: underline; }
+
+        .search {
+            background: #fdf6e3;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 25px;
+            justify-content: center;
+            align-items: center;
+        }
+        .search label {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #ffa94d;
+            min-width: 90px;
+            user-select: none;
+        }
+        .search input[type="month"] {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1.5px solid #ffa94d;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            min-width: 160px;
+        }
+        .search input[type="month"]:focus {
+            outline: none;
+            border-color: #ff7f11;
+            box-shadow: 0 0 6px #ff7f11aa;
+        }
+        .search button {
+            background-color: #ffa94d;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            padding: 10px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 5px 10px #ff7f11aa;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+            user-select: none;
+            flex: 1 1 140px;
+            max-width: 180px;
+        }
+        .search button:hover {
+            background-color: #ff7f11;
+            box-shadow: 0 7px 14px #ff7f11cc;
+            transform: translateY(-2px);
+        }
+        .search button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 8px #e56700aa;
+        }
+
+        table {
+            width: 100%;
+            max-width: 800px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+            background: white;
+            font-size: 1rem;
+        }
+        thead {
+            background-color: #ffa94d;
+            color: white;
+            font-weight: 700;
+        }
+        th, td {
+            padding: 14px 20px;
+            text-align: center;
+            border-bottom: 1px solid #ffd9b3;
+        }
+        tbody tr:hover { background-color: #fff5e6; }
+        tbody tr:last-child td { border-bottom: none; }
+
+        #custom-alert {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .alert-box {
+            background: #fff8f0;
+            border: 2px solid #ffa94d;
+            border-radius: 12px;
+            padding: 24px 32px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(255, 140, 0, 0.3);
+            animation: fadeIn 0.3s ease-out;
+        }
+        .alert-box p {
+            color: #ff7f11;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .alert-box button {
+            background: #ffa94d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .alert-box button:hover {
+            background: #ff7f11;
+        }
+        @keyframes fadeIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            .search { flex-direction: column; padding: 15px 20px; }
+            .search label, .search input[type="month"], .search button { max-width: 100%; }
+            table { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+<h1>芒果價格查詢💰</h1>
+<nav>
+    <a href="/">首頁</a> |
+    <a href="knowledge.html">芒果小教室</a> |
+    <a href="recipes.html">芒果小廚房</a>
+</nav>
+
+<div class="search">
+    <label for="start">起始月份：</label>
+    <input type="month" id="start" min="2015-06" max="2025-04" />
+    <label for="end">結束月份：</label>
+    <input type="month" id="end" min="2015-06" max="2025-04" />
+    <button onclick="search()">查詢</button>
+    <button onclick="loadPrices()">顯示全部</button>
+</div>
+
+<table id="priceTable">
+    <thead>
+    <tr>
+        <th>日期</th>
+        <th>名稱</th>
+        <th>價格 (元)</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- 自訂提示框 -->
+<div id="custom-alert">
+    <div class="alert-box">
+        <p id="alert-message">提示內容</p>
+        <button onclick="closeAlert()">確定</button>
+    </div>
+</div>
+
+<script>
+    function showAlert(message) {
+        document.getElementById('alert-message').innerText = message;
+        document.getElementById('custom-alert').style.display = 'flex';
+    }
+
+    function closeAlert() {
+        document.getElementById('custom-alert').style.display = 'none';
+    }
+
+    async function loadPrices() {
+        const res = await fetch('/index/avomango');
+        const data = await res.json();
+        populateTable(data);
+    }
+
+    async function search() {
+        const startMonth = document.getElementById('start').value;
+        const endMonth = document.getElementById('end').value;
+
+        if (!startMonth || !endMonth) {
+            showAlert('請選擇起始與結束月份🗓️');
+            return;
+        }
+        if (startMonth > endMonth) {
+            showAlert('起始月份不能晚於結束月份!!');
+            return;
+        }
+
+        const res = await fetch(`/index/avomango/search?start=${startMonth}&end=${endMonth}`);
+        const data = await res.json();
+        populateTable(data);
+    }
+
+    function populateTable(data) {
+        const tbody = document.querySelector('#priceTable tbody');
+        tbody.innerHTML = '';
+        if (!data.length) {
+            tbody.innerHTML = '<tr><td colspan="3">查無資料</td></tr>';
+            return;
+        }
+        data.forEach(({ date, name, price }) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${date}</td><td>${name}</td><td>${price.toFixed(2)}</td>`;
+            tbody.appendChild(tr);
+        });
+    }
+</script>
+</body>
+</html>
